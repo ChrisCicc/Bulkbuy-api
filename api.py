@@ -4,6 +4,11 @@ from scraper import scrape_product
 
 app = FastAPI()
 
+# ✅ Add this to fix "Not Found" error at /
+@app.get("/")
+def home():
+    return {"message": "Welcome to BulkBuy API! Visit /docs to test the API."}
+
 class ProductRequest(BaseModel):
     url: str
 
